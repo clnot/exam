@@ -25,15 +25,14 @@ public class RegistrateController {
     @FXML
     void initialize() {
         registrate.setOnAction(e -> validation_create());
+
+        password.textProperty().addListener((observable, oldValue, newValue) -> {
+            password.setText(newValue.replaceAll("[^a-zA-Z0-9]", ""));    });
         signIn.setOnMouseClicked(e -> {
             new HelloApplication().openNewScene(pane, "/com/example/exam/auth.fxml", "Авторизация");
         });
 
-        password.textProperty().addListener(((observableValue, oldValue, newValue) -> {
-            if (!newValue.matches("[a-zA-Z]*$")) {
-                password.setText(newValue.replaceAll("[^a-zA-Z0-9]", ""));
-            }
-        }));
+
     }
 
 
@@ -50,7 +49,12 @@ public class RegistrateController {
             alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Пустые поля!");
             alert.showAndWait();
-        }  else if (codeError == 0) {
+        } else if (s_password.length() < 8) {
+            alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Пароль короткий");
+            alert.showAndWait();
+        }
+        else if (codeError == 0) {
             alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Такой логин уже существует");
             alert.showAndWait();
