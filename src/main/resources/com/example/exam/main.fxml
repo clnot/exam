@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exam.Controller.MainController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="198.0" style="-fx-background-color: #7065ff;">
+         <children>
+            <Button fx:id="btn2" layoutY="132.0" mnemonicParsing="false" onAction="#onClick" prefHeight="36.0" prefWidth="188.0" stylesheets="@styles/buttonMenu.css" text="Клиенты и абонементы" />
+            <Button fx:id="btn1" layoutX="5.0" layoutY="96.0" mnemonicParsing="false" onAction="#onClick" prefHeight="36.0" prefWidth="188.0" stylesheets="@styles/buttonMenu.css" text="Услуги" />
+            <ImageView fx:id="logOut" fitHeight="36.0" fitWidth="35.0" layoutX="14.0" layoutY="550.0" onMouseClicked="#logOutClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/logout.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <StackPane layoutX="198.0" prefHeight="600.0" prefWidth="602.0">
+         <children>
+            <GridPane fx:id="grid2" style="-fx-background-color: #fffffc;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="600.0" prefWidth="600.0">
+                     <children>
+                        <TableView fx:id="table" layoutX="6.0" layoutY="156.0" prefHeight="439.0" prefWidth="591.0">
+                          <columns>
+                            <TableColumn fx:id="surname" prefWidth="92.0" text="Фамилия" />
+                            <TableColumn fx:id="name" prefWidth="91.0" text="Имя" />
+                              <TableColumn fx:id="lastname" prefWidth="78.0" text="Отчество" />
+                              <TableColumn fx:id="abonement" prefWidth="105.0" text="Абонемент" />
+                              <TableColumn fx:id="dateC" prefWidth="110.0" text="Дата начала" />
+                              <TableColumn fx:id="dateD" prefWidth="114.0" text="Дата окончания" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="111.0" layoutY="57.0" text="Информация о клиентах и абонементах" textFill="#7065ff">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="grid1" style="-fx-background-color: #ffffff;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="600.0" prefWidth="600.0">
+                     <children>
+                        <Label layoutX="131.0" layoutY="25.0" text="Услуги ФИТНЕС КЛУБА" textFill="#7065ff">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="tableService" layoutX="21.0" layoutY="112.0" prefHeight="475.0" prefWidth="574.0">
+                          <columns>
+                            <TableColumn fx:id="nameS" prefWidth="390.0" text="Название" />
+                            <TableColumn fx:id="priceS" prefWidth="183.0" text="Цена" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>
